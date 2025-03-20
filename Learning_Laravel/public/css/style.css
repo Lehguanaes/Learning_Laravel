@@ -1,0 +1,83 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3e5f5; /* Fundo lilás claro */
+}
+.navbar {
+    background: linear-gradient(90deg,#908dfe, #ddd); /* Lilás + Cinza */
+}
+.navbar-brand, .nav-link {
+    color: white !important;
+    font-weight: bold;
+}
+.container {
+    max-width: 480px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+}
+h3 {
+    text-align: center;
+    color:#908dfe;
+    font-size: 26px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+p {
+    text-align: center;
+    color:#455963;
+    font-size: 19px;
+}
+.form-label {
+    font-weight: bold;
+    color:#908dfe;
+    font-size: 16px;
+}
+.form-control {
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #908dfe;
+    border-radius: 6px;
+}
+.btn-custom {
+    background-color:#908dfe;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.btn-custom:hover {
+    background-color:rgb(108, 104, 226);
+}
+#footer
+{
+bottom: 0;
+left: 0;
+position: fixed;
+width: 100%;
+background: linear-gradient(90deg,#908dfe, #ddd); /* Lilás + Cinza */
+text-align: center;
+color: white;
+padding: 6px;
+}
+.alert {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-out;
+}
