@@ -1,6 +1,6 @@
 # [![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=908dfe&size=35&center=true&vCenter=true&width=1000&lines=Aprendendo+CRUD+com+Laravel!;Website+de+introdução+ao+Laravel!;)](https://git.io/typing-svg)
 
-Website com CRUD desenvolvido para aprendizado em Laravel com conexão ao Banco de dados, explorando seus principais componentes e boas práticas.
+Website com Creat desenvolvido para aprendizado em Laravel com conexão ao Banco de dados, explorando seus principais componentes e boas práticas.
 
 <a href="Learning_Laravel" target="_blank"><img src="https://img.shields.io/badge/Estoque Website-0D1117?style=for-the-badge&logo=laravel&logoColor=908dfe"></a>
 
