@@ -1,35 +1,82 @@
-// Função para exibir o alerta de confirmação antes de cadastrar o produto
-function confirmarCadastro() {
-    // Pegar os valores dos inputs
-    let nomeProduto = document.querySelector('input[name="nome"]').value;
-    let valorProduto = document.querySelector('input[name="valor"]').value;
-    let quantidadeProduto = document.querySelector('input[name="estoque"]').value;
+// Confirmação de Cadastro do Produto
+function confirmarCadastro(event) {
+    event.preventDefault(); // Impede o envio imediato do formulário
 
-    // Verificar se os campos estão preenchidos
-    if (!nomeProduto || !valorProduto || !quantidadeProduto) {
+    let nome = document.querySelector('input[name="nome"]').value.trim();
+    let valor = document.querySelector('input[name="valor"]').value.trim();
+    let estoque = document.querySelector('input[name="estoque"]').value.trim();
+
+    // Verifica se todos os campos obrigatórios estão preenchidos
+    if (nome === "" || valor === "" || estoque === "" ) {
         Swal.fire({
-            icon: 'warning',
-            title: 'Campos vazios!',
-            text: 'Preencha todos os campos antes de cadastrar.',
+            title: "Campos obrigatórios!",
+            text: "Por favor, preencha todos os campos antes de continuar.",
+            icon: "warning",
+            iconColor:'#908dfe', 
+            confirmButtonColor: '#908dfe', 
+            cancelButtonColor: '#5f5cb5',
+            confirmButtonText: "OK"
         });
-        return;
+        return; // Interrompe o fluxo se algum campo estiver vazio
     }
 
-    // Exibir o alerta de confirmação
+    // Alerta de confirmação com os dados preenchidos
     Swal.fire({
-        title: 'Confirmar Cadastro',
-        html: `Deseja cadastrar o produto <b>${nomeProduto}</b> com preço de <b>R$ ${valorProduto}</b> e quantidade de <b>${quantidadeProduto}</b>?`,
-        icon: 'question',
-        iconColor: '#908dfe', 
+        title: "Confirmar Cadastro",
+        html: `Tem certeza que deseja cadastrar este produto?<br><br>
+                <strong>Nome:</strong> ${nome} <br>
+                <strong>Valor:</strong> R$ ${valor} <br>
+                <strong>Estoque:</strong> ${estoque} unidades`,
+        icon: "success",
         showCancelButton: true,
+        iconColor:'#908dfe', 
         confirmButtonColor: '#908dfe', 
         cancelButtonColor: '#5f5cb5',
-        confirmButtonText: 'Sim, cadastrar!',
+        confirmButtonText: "Sim, cadastrar!",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById("formCadastro").submit();
+        }
+    });
+}
+
+// Confirmação de Edição do Produto
+function confirmarEdicao() {
+    Swal.fire({
+        title: 'Confirmar Edição',
+        text: "Tem certeza que deseja editar este produto?",
+        icon: 'warning',
+        showCancelButton: true,
+        iconColor:'#908dfe', 
+        confirmButtonColor: '#908dfe', 
+        cancelButtonColor: '#5f5cb5',
+        confirmButtonText: 'Sim, editar!',
         cancelButtonText: 'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
-            // Se o usuário confirmar, submeter o formulário
-            document.querySelector('form').submit();
+            document.getElementById('form-editar').submit();
+        }
+    });
+}
+
+// Confirmação de Exclusão do Produto
+function confirmarExclusao(id, nome, valor) {
+    Swal.fire({
+        title: 'Excluir produto?',
+        html: `Tem certeza que deseja excluir este produto?<br><br>
+                <strong>Nome:</strong> ${nome} <br>
+                <strong>Valor:</strong> ${valor} <br>`,
+        icon: 'warning',
+        showCancelButton: true,
+        iconColor:'#908dfe', 
+        confirmButtonColor: '#908dfe', 
+        cancelButtonColor: '#5f5cb5',
+        confirmButtonText: 'Sim, excluir',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('formExcluir' + id).submit();
         }
     });
 }
@@ -42,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alertBox.style.opacity = "0";
             setTimeout(() => {
                 alertBox.style.display = "none";
-            }, 500); // Tempo extra para transição suave
-        }, 2000); // Tempo antes de sumir (3 segundos)
+            }, 500);
+        }, 2000);
     }
 });
