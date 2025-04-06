@@ -10,12 +10,13 @@ body {
     font-weight: bold;
 }
 .container {
-    max-width: 480px;
+    max-width: 500px;
     background: white;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 60px;
+    margin-top: 90px;
+    margin-bottom: 60px;
 }
 h3 {
     text-align: center;
@@ -59,6 +60,36 @@ p {
 .btn-custom:hover {
     background-color:rgb(108, 104, 226);
 }
+.btn-purple {
+    background-color: #908dfe;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-purple:hover {
+    background-color: #5a32a3;
+    color: #fff;
+}
+
+.btn-editar{
+    background-color: #908dfe;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color:rgb(108, 104, 226);
+}
+
+.btn-excluir {
+    background-color: #7774e1;
+    color: white;
+}
+
+.btn-excluir:hover {
+    background-color:rgb(102, 98, 209);
+}
+
 #footer
 {
 bottom: 0;
